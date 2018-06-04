@@ -45,6 +45,7 @@ public final class NetworkClient {
     
     let tempUrl : URL
     switch type {
+    //todo use the base url from the plist and format this url
     case .popular:
       tempUrl = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(self.apiKey)")!
     case .topRated:
