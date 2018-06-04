@@ -21,7 +21,6 @@ class MovieDetailViewController: UIViewController {
     super.viewDidLoad()
     print("loading with movie \(movie.title)")
     setMovieData()
-    
   }
   
   private func downloadImage(){
@@ -37,7 +36,6 @@ class MovieDetailViewController: UIViewController {
     movieOverviewTxt.text = movie.overview
     movieTitleLbl.text = movie.title
     scoreLbl.text = "\(movie.voteAverage) / 10"
-
   }
   
 }

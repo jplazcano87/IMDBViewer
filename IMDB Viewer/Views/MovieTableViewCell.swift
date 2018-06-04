@@ -31,7 +31,4 @@ class MovieTableViewCell: UITableViewCell {
     self.index = index
   }
   
-  
-  
-  
 }

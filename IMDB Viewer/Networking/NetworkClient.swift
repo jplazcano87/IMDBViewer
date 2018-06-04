@@ -15,7 +15,6 @@ public final class NetworkClient {
   internal let apiKey: String
   internal let session = URLSession.shared
   
-  
   // MARK: - Class Constructors
   public static let shared: NetworkClient = {
     let file = Bundle.main.path(forResource: "ServerEnvironments", ofType: "plist")!
@@ -35,31 +34,23 @@ public final class NetworkClient {
   public func getMovies(forType type: Movie.SortMovieBy,
                         success _success: @escaping ([Movie]) -> Void,
                         failure _failure: @escaping (NetworkError) -> Void) {
+   
     let success: ([Movie]) -> Void = { movies in
       DispatchQueue.main.async { _success(movies) }
     }
+    
     let failure: (NetworkError) -> Void = { error in
       DispatchQueue.main.async { _failure(error) }
     }
     
-    let url = baseURL.appendingPathComponent("\(type.rawValue)?api_key=\(self.apiKey)")
-    print("requesting to url \(url)")
     let tempUrl : URL
     switch type {
     case .popular:
-      tempUrl = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=34738023d27013e6d1b995443764da44")!
+      tempUrl = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(self.apiKey)")!
     case .topRated:
-      tempUrl = URL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=34738023d27013e6d1b995443764da44")!
+      tempUrl = URL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=\(self.apiKey)")!
     }
-    
-    print("requesting to url \(tempUrl)")
-    
-    var searchURLComponents = URLComponents()
-    searchURLComponents.path = "\(type.rawValue)"
-    searchURLComponents.queryItems = [URLQueryItem(name: "api_key", value: self.apiKey)]
-    let searchURL = searchURLComponents.url!
-    print("now to url \(searchURL)")
-    
+  
     let task = session.dataTask(with: tempUrl, completionHandler: { (data, response, error) in
       var movies: [Movie] = []
       guard let httpResponse = response as? HTTPURLResponse,
