@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMDB Viewer/View Controllers/MainViewController.swift"
+            timestampString = "549786239.117366"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "loadMovies()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IMDB_Viewer.MainViewController.loadMovies() -&gt; ()"
+                  moduleName = "IMDB Viewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spaceghost/Projects/IMDB%20Viewer/IMDB%20Viewer/View%20Controllers/MainViewController.swift"
+                  timestampString = "549772552.870851"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "389">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;IMDB_Viewer.Movie&gt;) -&gt; () in IMDB_Viewer.MainViewController.loadMovies() -&gt; ()"
+                  moduleName = "IMDB Viewer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/spaceghost/Projects/IMDB%20Viewer/IMDB%20Viewer/View%20Controllers/MainViewController.swift"
+                  timestampString = "549772552.874163"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "26">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
