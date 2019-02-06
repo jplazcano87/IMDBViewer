@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 //Protocol to handle button click inside the cell
-protocol MovieCellDelegate {
+protocol MovieCellDelegate: class {
   func showMovieDetails(_ index: Int)
 }
 
@@ -17,16 +17,16 @@ class MovieTableViewCell: UITableViewCell {
   
   @IBOutlet weak var moviePosterImg: UIImageView!
   @IBOutlet weak var titleLbl: UILabel!
-  var delegate: MovieCellDelegate?
-  var index : Int?
-  
+  weak var delegate: MovieCellDelegate?
+  var index: Int?
+
   @IBAction func detailButtonTaped(_ sender: Any) {
     if let index = index {
       delegate?.showMovieDetails(index)
     }
   }
-  
-  func configure(withMovie movie : Movie, index : Int){
+
+  func configure(withMovie movie: Movie, index: Int) {
     self.titleLbl.text = movie.title
     self.index = index
     moviePosterImg.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)"),

@@ -18,8 +18,8 @@ final class MoviesViewModel {
     private var movies: [Movie] = []
     private let client = MovieRequestClient()
     private var request: MoviesRequest
-    private var requestType : SortMovieBy = .popular
-    
+    private var requestType: SortMovieBy = .popular
+
     public enum SortMovieBy {
         case popular
         case topRated
@@ -28,17 +28,17 @@ final class MoviesViewModel {
     var totalCount: Int {
         return movies.count
     }
-    
+
     func movie(at index: Int) -> Movie {
         return movies[index]
     }
-    
+
     //using a default strategy for fetch movies, this could be changed at runtime with a setter
     init(request: MoviesRequest = MoviesRequest.popularMovies(), delegate: MoviesViewModelDelegate) {
         self.request = request
         self.delegate = delegate
     }
-    
+
     @objc func changeFilter() {
         if requestType == .popular {
             requestType = .topRated
@@ -47,10 +47,9 @@ final class MoviesViewModel {
             requestType = .popular
             request =  MoviesRequest.popularMovies()
         }
-        
         fetchMovies()
     }
-    
+
     func fetchMovies() {
         client.fetchMovies(with: request, page: 1) { result in
             switch result {

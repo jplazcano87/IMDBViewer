@@ -24,7 +24,8 @@ class MovieDetailViewController: UIViewController {
     }
     
     private func downloadImage() {
-        posterImg.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)"), placeholderImage: UIImage(named: "MoviePlaceholder"))
+        posterImg.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)"),
+                              placeholderImage: UIImage(named: "MoviePlaceholder"))
     }
     
     private func setMovieData() {
