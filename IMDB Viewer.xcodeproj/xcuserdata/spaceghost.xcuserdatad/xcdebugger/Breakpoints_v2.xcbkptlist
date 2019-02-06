@@ -9,46 +9,62 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IMDB Viewer/View Controllers/MainViewController.swift"
-            timestampString = "549787407.524981"
+            filePath = "IMDB Viewer/Networking/MovieRequestClient.swift"
+            timestampString = "571113747.557512"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "loadMovies()"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "fetchMovies(with:page:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IMDB_Viewer.MainViewController.loadMovies() -&gt; ()"
-                  moduleName = "IMDB Viewer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/spaceghost/Projects/IMDB%20Viewer/IMDB%20Viewer/View%20Controllers/MainViewController.swift"
-                  timestampString = "549772552.870851"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "389">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Array&lt;IMDB_Viewer.Movie&gt;) -&gt; () in IMDB_Viewer.MainViewController.loadMovies() -&gt; ()"
-                  moduleName = "IMDB Viewer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/spaceghost/Projects/IMDB%20Viewer/IMDB%20Viewer/View%20Controllers/MainViewController.swift"
-                  timestampString = "549772552.874163"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "26">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMDB Viewer/ViewControllers/MainViewController.swift"
+            timestampString = "571113747.5576"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMDB Viewer/Networking/MovieRequestClient.swift"
+            timestampString = "571113747.558055"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "fetchMovies(with:page:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IMDB Viewer/MoviesViewModel.swift"
+            timestampString = "571113747.558129"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "fetchMovies()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

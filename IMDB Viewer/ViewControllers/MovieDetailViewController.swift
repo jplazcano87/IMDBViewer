@@ -24,7 +24,7 @@ class MovieDetailViewController: UIViewController {
   }
   
   private func downloadImage(){
-    posterImg.setImage(url: movie.posterPath)
+  //  posterImg.setImage(url: movie.posterPath)
   }
   
   private func setMovieData(){
