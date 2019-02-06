@@ -55,7 +55,15 @@ extension MainViewController: MoviesViewModelDelegate {
         movieTableView.reloadData()
     }
     
-    func onFetchFailed(with reason: String) {}
+    func onFetchFailed(with reason: String) {
+        let alert = UIAlertController(title: "Error", message: reason, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "try again", style: .default, handler: {  action in
+            self.viewModel.fetchMovies()
+        }))
+        
+        self.present(alert, animated: true)
+    }
 }
 
 // MARK: - UITableView
@@ -75,7 +83,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             as? MovieTableViewCell ?? MovieTableViewCell()
         cell.delegate = self
         cell.configure(withMovie: viewModel.movie(at: indexPath.row), index: indexPath.row)
-        
         return cell
     }
 }

@@ -40,7 +40,6 @@ final class MoviesViewModel {
     }
     
     @objc func changeFilter() {
-    
         if requestType == .popular {
             requestType = .topRated
             request =  MoviesRequest.topRated()
@@ -48,6 +47,7 @@ final class MoviesViewModel {
             requestType = .popular
             request =  MoviesRequest.popularMovies()
         }
+        
         fetchMovies()
     }
     
