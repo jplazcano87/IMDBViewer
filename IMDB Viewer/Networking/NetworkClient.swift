@@ -1,9 +1,9 @@
 //
-//  NetworkClient.swift
+//  DataResponseError.swift
 //  IMDB Viewer
 //
-//  Created by Juan Pablo Lazcano Candia on 6/2/18.
-//  Copyright © 2018 Juan Pablo Lazcano Candia. All rights reserved.
+//  Created by SpaceGhost on 2/5/19.
+//  Copyright © 2019 Juan Pablo Lazcano Candia. All rights reserved.
 //
 
 import Foundation
@@ -25,6 +25,8 @@ public final class NetworkClient {
     return NetworkClient(baseURL: url, apiKey: apiKey)
   }()
   
+    
+    
   // MARK: - Object Lifecycle
   private init(baseURL: URL, apiKey : String) {
     self.baseURL = baseURL
@@ -52,29 +54,26 @@ public final class NetworkClient {
       tempUrl = URL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=\(self.apiKey)")!
     }
   
-    let task = session.dataTask(with: tempUrl, completionHandler: { (data, response, error) in
-      var movies: [Movie] = []
-      guard let httpResponse = response as? HTTPURLResponse,
-        httpResponse.statusCode.isSuccessHTTPCode,
-        let data = data,
-        let jsonObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-          if let error = error {
-            failure(NetworkError(error: error))
-          } else {
-            failure(NetworkError(response: response))
-          }
-          return
-      }
-      
-      for case let result in jsonObject!["results"] as! [[String : Any]] {
-        if let movie = try? Movie(json: result) {
-          movies.append(movie)
+    session.dataTask(with: encodedURLRequest, completionHandler: { data, response, error in
+   
+        guard
+            let httpResponse = response as? HTTPURLResponse,
+            httpResponse.hasSuccessStatusCode,
+            let data = data
+            else {
+                completion(Result.failure(DataResponseError.network))
+                return
         }
-      }
-      success(movies)
-    })
-    
-    task.resume()
+        
+   
+        guard let decodedResponse = try? JSONDecoder().decode(MoviesResponse.self, from: data) else {
+            completion(Result.failure(DataResponseError.decoding))
+            return
+        }
+        
+   
+        completion(Result.success(decodedResponse))
+    }).resume()
   }
   
 }
