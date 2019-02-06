@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         movieTableView.delegate = self
         movieTableView.dataSource = self
-        let request = MoviesRequest.from()
+        let request = MoviesRequest.popularMovies()
         viewModel = MoviesViewModel(request: request, delegate: self)
         viewModel.fetchMovies()
         
@@ -96,10 +96,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MovieTableViewCell = movieTableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell ?? MovieTableViewCell()
-        // Delegate cell button tap events to this view controller
         cell.delegate = self
-
-        
         cell.configure(withMovie: viewModel.movie(at: indexPath.row), index: indexPath.row)
         
         return cell
