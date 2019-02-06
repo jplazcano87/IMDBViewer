@@ -20,9 +20,9 @@ final class MoviesViewModel {
     private var request: MoviesRequest
     private var requestType : SortMovieBy = .popular
     
-    public enum SortMovieBy: String {
-        case popular = "popular"
-        case topRated = "top_rated"
+    public enum SortMovieBy {
+        case popular
+        case topRated
     }
 
     var totalCount: Int {
