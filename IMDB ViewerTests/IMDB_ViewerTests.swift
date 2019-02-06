@@ -9,7 +9,7 @@
 import XCTest
 @testable import IMDB_Viewer
 
-class IMDB_ViewerTests: XCTestCase {
+class IMDBViewerTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
