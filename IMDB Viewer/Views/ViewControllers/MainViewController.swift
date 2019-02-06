@@ -25,9 +25,6 @@ class MainViewController: UIViewController {
     // MARK: - Instance Properties
     
     private var viewModel: MoviesViewModel!
-    
-    internal var imageTasks: [IndexPath: URLSessionDataTask] = [:]
-    internal let imageCache = NSCache<NSString, UIImage>()
     internal let segueId = "MovieDetail"
     
     override func viewDidLoad() {
@@ -49,7 +46,6 @@ class MainViewController: UIViewController {
 //        }
 //        loadMovies()
     }
-
     
     private func configureTableView() {
         movieTableView.tableFooterView = UIView()
@@ -62,23 +58,16 @@ class MainViewController: UIViewController {
         if let index = sender as? Int {
 //            let movie = movies[index]
 //            viewController.movie = movie
-//            if let cachedImage = imageCache.object(forKey: movie.posterPath.description as NSString) {
-//                // if the image is already downloaded, the detail view gets the image from the cache
-//                viewController.moviePoster = cachedImage
-//            }
         }
     }
 }
 
 extension MainViewController: MoviesViewModelDelegate {
-    func onFetchCompleted(){
-       movieTableView.reloadData()
-        
+    func onFetchCompleted() {
+        movieTableView.reloadData()
     }
     
-    func onFetchFailed(with reason: String){
-        
-    }
+    func onFetchFailed(with reason: String) {}
 }
 
 // MARK: - UITableView

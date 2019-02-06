@@ -1,0 +1,6 @@
+framework module Pods_IMDB_ViewerUITests {
+  umbrella header "Pods-IMDB ViewerUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
