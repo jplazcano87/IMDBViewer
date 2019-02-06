@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IMDB Viewer/Views/ViewControllers/MainViewController.swift"
-            timestampString = "571119555.666845"
+            timestampString = "571121559.6584409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "onFetchFailed(with:)"
             landmarkType = "7">
          </BreakpointContent>
