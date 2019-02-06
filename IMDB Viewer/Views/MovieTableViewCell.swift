@@ -17,7 +17,6 @@ class MovieTableViewCell: UITableViewCell {
   
   @IBOutlet weak var moviePosterImg: UIImageView!
   @IBOutlet weak var titleLbl: UILabel!
-  @IBOutlet weak var downloadIndicator: UIActivityIndicatorView!
   var delegate: MovieCellDelegate?
   var index : Int?
   
@@ -30,7 +29,8 @@ class MovieTableViewCell: UITableViewCell {
   func configure(withMovie movie : Movie, index : Int){
     self.titleLbl.text = movie.title
     self.index = index
-    moviePosterImg.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)"), placeholderImage: UIImage(named: "MoviePlaceholder"))
+    moviePosterImg.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)"),
+                               placeholderImage: UIImage(named: "MoviePlaceholder"))
   }
   
 }

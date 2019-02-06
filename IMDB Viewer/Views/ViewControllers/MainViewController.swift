@@ -11,12 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
     // MARK: - IBOutlets
     
-    @IBOutlet var movieTableView: UITableView! {
-        didSet {
-            let refreshControl = UIRefreshControl()
-            movieTableView.refreshControl = refreshControl
-        }
-    }
+    @IBOutlet var movieTableView: UITableView!
     
     // MARK: - Injections
     
@@ -31,20 +26,14 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         movieTableView.delegate = self
         movieTableView.dataSource = self
-        let request = MoviesRequest.popularMovies()
-        viewModel = MoviesViewModel(request: request, delegate: self)
+        viewModel = MoviesViewModel(delegate: self)
         viewModel.fetchMovies()
         
         configureTableView()
     }
     
     @IBAction func changeFilter(_ sender: Any) {
-//        if defaultFilterType == .popular {
-//            defaultFilterType = .topRated
-//        } else {
-//            defaultFilterType = .popular
-//        }
-//        loadMovies()
+        viewModel.changeFilter()
     }
     
     private func configureTableView() {
@@ -56,8 +45,7 @@ class MainViewController: UIViewController {
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let viewController = segue.destination as? MovieDetailViewController else { return }
         if let index = sender as? Int {
-//            let movie = movies[index]
-//            viewController.movie = movie
+            viewController.movie = viewModel.movie(at: index)
         }
     }
 }
@@ -83,7 +71,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: MovieTableViewCell = movieTableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieTableViewCell ?? MovieTableViewCell()
+        let cell: MovieTableViewCell = movieTableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath)
+            as? MovieTableViewCell ?? MovieTableViewCell()
         cell.delegate = self
         cell.configure(withMovie: viewModel.movie(at: indexPath.row), index: indexPath.row)
         

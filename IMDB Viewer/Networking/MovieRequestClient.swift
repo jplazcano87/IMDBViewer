@@ -22,6 +22,8 @@ final class MovieRequestClient {
   func fetchMovies(with request: MoviesRequest, page: Int, completion: @escaping (Result<MoviesResponse, DataResponseError>) -> Void) {
     let urlRequest = URLRequest(url: baseURL.appendingPathComponent(request.path))
     let encodedURLRequest = urlRequest.encode(with: request.parameters)
+    print(encodedURLRequest)
+   
     session.dataTask(with: encodedURLRequest, completionHandler: { data, response, error in
  
       guard

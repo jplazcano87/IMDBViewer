@@ -161,11 +161,11 @@
 		7F47D3E020C34CB800E09D9C /* IMDB Viewer */ = {
 			isa = PBXGroup;
 			children = (
+				7FE52AA5220A8C3100CBF3B6 /* ViewModels */,
 				7FA9530F20C4C7B300BF59AB /* Main */,
 				7F8C0ED820C397CB00C4D75A /* Models */,
 				7F8C0ED720C3976600C4D75A /* Networking */,
 				7FA9530B20C4C0EC00BF59AB /* Views */,
-				7F5E57AA220A786C00ED3E4E /* MoviesViewModel.swift */,
 			);
 			path = "IMDB Viewer";
 			sourceTree = "<group>";
@@ -271,6 +271,14 @@
 				7F47D3EA20C34CBC00E09D9C /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7FE52AA5220A8C3100CBF3B6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7F5E57AA220A786C00ED3E4E /* MoviesViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

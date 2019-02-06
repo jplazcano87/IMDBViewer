@@ -50,9 +50,6 @@
                                                         <constraint firstItem="Mcj-ET-rHc" firstAttribute="leading" secondItem="PbR-FL-t61" secondAttribute="leadingMargin" id="wzD-AX-UQ5"/>
                                                     </constraints>
                                                 </view>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="me6-Pj-9bw">
-                                                    <rect key="frame" x="169" y="141.5" width="37" height="37"/>
-                                                </activityIndicatorView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRC-IX-jBv">
                                                     <rect key="frame" x="268" y="19" width="100" height="30"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -73,8 +70,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="PbR-FL-t61" secondAttribute="bottom" id="4qV-aG-e7h"/>
                                                 <constraint firstAttribute="bottom" secondItem="beZ-Ld-JKp" secondAttribute="bottom" id="5Q8-vv-N4C"/>
                                                 <constraint firstItem="beZ-Ld-JKp" firstAttribute="leading" secondItem="oIJ-T0-q2j" secondAttribute="leading" id="Cyz-87-RT2"/>
-                                                <constraint firstItem="me6-Pj-9bw" firstAttribute="centerY" secondItem="oIJ-T0-q2j" secondAttribute="centerY" id="DHg-yo-uYm"/>
-                                                <constraint firstItem="me6-Pj-9bw" firstAttribute="centerX" secondItem="oIJ-T0-q2j" secondAttribute="centerX" id="K3i-CY-Mus"/>
                                                 <constraint firstAttribute="trailing" secondItem="beZ-Ld-JKp" secondAttribute="trailing" id="T0v-rU-H39"/>
                                                 <constraint firstItem="eRC-IX-jBv" firstAttribute="trailing" secondItem="oIJ-T0-q2j" secondAttribute="trailingMargin" constant="8" id="WVB-yV-9tl"/>
                                                 <constraint firstItem="beZ-Ld-JKp" firstAttribute="top" secondItem="oIJ-T0-q2j" secondAttribute="top" id="Ymj-Zh-TiD"/>
@@ -85,7 +80,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="downloadIndicator" destination="me6-Pj-9bw" id="OaY-nZ-teI"/>
                                             <outlet property="moviePosterImg" destination="beZ-Ld-JKp" id="6y0-43-G5n"/>
                                             <outlet property="titleLbl" destination="Mcj-ET-rHc" id="b0F-c5-Dkq"/>
                                         </connections>

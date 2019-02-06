@@ -16,11 +16,15 @@ protocol MoviesViewModelDelegate: class {
 final class MoviesViewModel {
     private weak var delegate: MoviesViewModelDelegate?
     private var movies: [Movie] = []
-    private var isFetchInProgress = false
+    private let client = MovieRequestClient()
+    private var request: MoviesRequest
+    private var requestType : SortMovieBy = .popular
     
-    let client = MovieRequestClient()
-    let request: MoviesRequest
-    
+    public enum SortMovieBy: String {
+        case popular = "popular"
+        case topRated = "top_rated"
+    }
+
     var totalCount: Int {
         return movies.count
     }
@@ -29,23 +33,34 @@ final class MoviesViewModel {
         return movies[index]
     }
     
-    init(request: MoviesRequest, delegate: MoviesViewModelDelegate) {
+    //using a default strategy for fetch movies, this could be changed at runtime with a setter
+    init(request: MoviesRequest = MoviesRequest.popularMovies(), delegate: MoviesViewModelDelegate) {
         self.request = request
         self.delegate = delegate
     }
-
+    
+    @objc func changeFilter() {
+    
+        if requestType == .popular {
+            requestType = .topRated
+            request =  MoviesRequest.topRated()
+        } else {
+            requestType = .popular
+            request =  MoviesRequest.popularMovies()
+        }
+        fetchMovies()
+    }
     
     func fetchMovies() {
         client.fetchMovies(with: request, page: 1) { result in
             switch result {
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.isFetchInProgress = false
                     self.delegate?.onFetchFailed(with: error.reason)
                 }
             case .success(let response):
                 DispatchQueue.main.async {
-                    self.isFetchInProgress = false
+                    self.movies.removeAll()
                     self.movies = response.results
                     self.delegate?.onFetchCompleted()
                 }
