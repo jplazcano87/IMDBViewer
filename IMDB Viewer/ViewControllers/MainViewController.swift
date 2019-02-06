@@ -14,7 +14,6 @@ class MainViewController: UIViewController {
     @IBOutlet var movieTableView: UITableView! {
         didSet {
             let refreshControl = UIRefreshControl()
-            //  refreshControl.addTarget(self, action: #selector(loadMovies), for: .valueChanged)
             movieTableView.refreshControl = refreshControl
         }
     }
@@ -26,7 +25,6 @@ class MainViewController: UIViewController {
     // MARK: - Instance Properties
     
     private var viewModel: MoviesViewModel!
-    var site: String!
     
     internal var imageTasks: [IndexPath: URLSessionDataTask] = [:]
     internal let imageCache = NSCache<NSString, UIImage>()
@@ -77,6 +75,7 @@ extension MainViewController: MoviesViewModelDelegate {
        movieTableView.reloadData()
         
     }
+    
     func onFetchFailed(with reason: String){
         
     }

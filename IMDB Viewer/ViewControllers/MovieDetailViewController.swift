@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieDetailViewController: UIViewController {
   public var movie: Movie!
@@ -19,12 +20,11 @@ class MovieDetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    print("loading with movie \(movie.title)")
     setMovieData()
   }
   
   private func downloadImage(){
-  //  posterImg.setImage(url: movie.posterPath)
+    posterImg.sd_setImage(with: URL(string: "https://image.tmdb.org/t/p/w500\(movie.posterPath)"), placeholderImage: UIImage(named: "MoviePlaceholder"))
   }
   
   private func setMovieData(){

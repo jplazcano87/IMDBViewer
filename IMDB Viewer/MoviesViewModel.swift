@@ -33,6 +33,7 @@ final class MoviesViewModel {
         self.request = request
         self.delegate = delegate
     }
+
     
     func fetchMovies() {
         client.fetchMovies(with: request, page: 1) { result in
@@ -42,7 +43,6 @@ final class MoviesViewModel {
                     self.isFetchInProgress = false
                     self.delegate?.onFetchFailed(with: error.reason)
                 }
-                
             case .success(let response):
                 DispatchQueue.main.async {
                     self.isFetchInProgress = false
